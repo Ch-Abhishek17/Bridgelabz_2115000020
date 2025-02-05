@@ -1,6 +1,4 @@
 ﻿# Bridgelabz_2115000020
- # Bridgelabz_2115000019
-
 Day-1  
 - 19-Jan-2025  
 - Topics:  
