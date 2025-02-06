@@ -1,0 +1,41 @@
+Class Diagram :
+
++-------------------+       +-------------------+       +-------------------+
+|    Customer       |       |    Product        |       | BillGenerator     |
++-------------------+       +-------------------+       +-------------------+
+| - customerName    |       | - productName     |       |                   |
+| - customerID      |       | - quantity        |       +-------------------+
++-------------------+       | - pricePerUnit    |       | + calculateTotal()|
+| + addProduct()    |       +-------------------+       +-------------------+
+| + getProducts()   |       |                   |
++-------------------+       |                   |
+        | 1                         * |
+        |------------------------------|
+        | purchases (Composition)      |
+
+
+Object Diagram :
+
++-------------------+       +-------------------+       +-------------------+
+|    Customer       |       |    Product        |       |    Product        |
++-------------------+       +-------------------+       +-------------------+
+| - customerName: Alice|    | - productName: Apples|    | - productName: Milk|
+| - customerID: 101  |      | - quantity: 2 kg   |      | - quantity: 1 liter|
++-------------------+       | - pricePerUnit: $3 |      | - pricePerUnit: $2 |
+                            +-------------------+    +-------------------+
+							
+							
+Sequence Diagram :
+
+Customer          BillGenerator       Product
+   |                   |                  |
+   |  checkout()       |                  |
+   |------------------>|                  |
+   |                   |  getProducts()   |
+   |                   |----------------->|
+   |                   |<-----------------|
+   |                   |  calculateTotal()|
+   |                   |----------------->|
+   |                   |<-----------------|
+   |<------------------|                  |
+   |  returnTotal()    |                  |
